@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nechama Yaffe</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Nechama Yaffe</h1> 
+        <nav>
+            <button>Home</button>
+            <button>Paintings</button>
+            <button>Contact</button>
+        </nav>
+        <div class="social">
+            <a href="https://www.facebook.com/nechama.yaffe" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/nechamayaffe/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
+    
+    <main>
+        <!-- <img id="main-painting" src="main_painting.jpg" alt="canvas painting"> -->
+    </main>
+
+    <footer>
+        &copy all right reserved - Nechama Yaffe
+    </footer>
+
+    <script id="gallery-item-template" type="text/x-handlebars-template">
+        <ol id="gallery">
+            {{#each paintings}}
+                <li class="painting-listing">
+                    <img id="{{fileName}}" src="./paintings/{{fileName}}">
+                    <div class="detail-card detail-card-hidden">
+                        <p>{{size}}</p>
+                        <p>{{technique}}</p>
+                        <p>{{year}}</p>
+                    </div>
+                </li>
+            {{/each}}
+        </ol>
+    </script>
+
+    <script id="carousel-template" type="text/x-handlebars-template">
+        <div id="carousel">
+            {{#each paintings}}
+                <img 
+                    src="./paintings/{{fileName}}"
+                    id="{{fileName}}-enlarged"
+                    class="enlarged-painting enlarged-painting-hidden"
+                >
+            {{/each}}
+        </div>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="paintingsData.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
