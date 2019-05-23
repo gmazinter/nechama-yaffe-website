@@ -13,9 +13,9 @@
     <header>
         <h1>Nechama Yaffe</h1> 
         <nav>
-            <button>Home</button>
-            <button>Paintings</button>
-            <button>Contact</button>
+            <a href="/#/home">Home</a>
+            <a href="/#/paintings">Paintings</a>
+            <a href="/#/contact">Contact</a>
         </nav>
         <div class="social">
             <a href="https://www.facebook.com/nechama.yaffe" target="_blank"><i class="fab fa-facebook-square"></i></a>
@@ -24,7 +24,7 @@
     </header>
     
     <main>
-        <!-- <img id="main-painting" src="main_painting.jpg" alt="canvas painting"> -->
+        <img id="main-painting" src="main_painting.jpg" alt="canvas painting"></img>
     </main>
 
     <footer>
@@ -47,14 +47,18 @@
     </script>
 
     <script id="carousel-template" type="text/x-handlebars-template">
-        <div id="carousel">
-            {{#each paintings}}
-                <img 
+        <div id="carousel-container">
+            <button id="left-arrow" onclick="flipImage(37)"><</button>
+            <div id="carousel">
+                {{#each paintings}}
+                    <img 
                     src="./paintings/{{fileName}}"
                     id="{{fileName}}-enlarged"
                     class="enlarged-painting enlarged-painting-hidden"
-                >
-            {{/each}}
+                    >
+                {{/each}}
+            </div>
+            <button id="right-arrow" onclick="flipImage(39)">></button>
         </div>
     </script>
 
