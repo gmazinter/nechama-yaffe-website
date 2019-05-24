@@ -19,7 +19,14 @@ const router = function() {
             break;
         case '#/contact':
             console.log("render contact")
+            renderContact()
     }
+}
+
+function renderContact() {
+    $("main").empty()
+    const contactHTML = $("#contact-template").html()
+    $("main").append(contactHTML)
 }
 
 function renderHome() {
