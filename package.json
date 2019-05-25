@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/gmazinter/nechama-yaffe-website#readme",
   "dependencies": {
-    "express": "^4.17.0"
+    "express": "^4.17.0",
+    "handlebars": "^4.1.2",
+    "jquery": "^3.4.1"
   }
 }

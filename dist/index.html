@@ -9,9 +9,10 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <h1>Nechama Yaffe</h1> 
+        <h1><a href="/#/home">Nechama Yaffe</a></h1> 
         <nav>
             <a href="/#/home">Home</a>
             <a href="/#/paintings">Paintings</a>
@@ -23,13 +24,17 @@
         </div>
     </header>
     
-    <main>
-        <img id="main-painting" src="main_painting.jpg" alt="canvas painting"></img>
-    </main>
+    <main></main>
 
     <footer>
         &copy all right reserved - Nechama Yaffe
     </footer>
+
+<!-- --------------- scripts  for page content according to location.hash --------------- -->
+
+    <script id="home-template" type="text/html">
+        <img id="main-painting" src="main_painting.jpg" alt="canvas painting"></img>
+    </script>
 
     <script id="contact-template" type="text/html">
         <section id="contact-container">
@@ -58,7 +63,7 @@
 
     <script id="carousel-template" type="text/x-handlebars-template">
         <div id="carousel-container">
-            <button id="left-arrow" onclick="flipImage(37)"><</button>
+            <button id="carousel-left-arrow"><</button>
             <div id="carousel">
                 {{#each paintings}}
                     <img 
@@ -68,13 +73,14 @@
                     >
                 {{/each}}
             </div>
-            <button id="right-arrow" onclick="flipImage(39)">></button>
+            <button id="carousel-right-arrow">></button>
         </div>
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="./jquery/dist/jquery.js"></script>
     <script src="paintingsData.js"></script>
+    <script src="Renderer.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
