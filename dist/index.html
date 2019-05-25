@@ -63,17 +63,18 @@
 
     <script id="carousel-template" type="text/x-handlebars-template">
         <div id="carousel-container">
-            <button id="carousel-left-arrow"><</button>
+            <button class="carousel-button" id="carousel-exit-button">X</button>
+            <button class="carousel-button" id="carousel-left-arrow"><i class="fas fa-chevron-left"></i></button>
             <div id="carousel">
                 {{#each paintings}}
                     <img 
-                    src="./paintings/{{fileName}}"
-                    id="{{fileName}}-enlarged"
-                    class="enlarged-painting enlarged-painting-hidden"
+                        src="./paintings/{{fileName}}"
+                        id="{{fileName}}-enlarged"
+                        class="enlarged-painting enlarged-painting-hidden"
                     >
                 {{/each}}
             </div>
-            <button id="carousel-right-arrow">></button>
+            <button class="carousel-button" id="carousel-right-arrow"><i class="fas fa-chevron-right"></i></button>
         </div>
     </script>
 
