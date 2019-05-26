@@ -68,8 +68,14 @@
             <div id="carousel-container">
                 {{#each paintings}}
                 <div id="{{fileName}}-enlarged" class="enlarged-painting enlarged-painting-hidden">
-                    <img src="./paintings/{{fileName}}">
-                    <!-- <figcaption>{{technique}}</figcaption> -->
+                    <figure>
+                        <img src="./paintings/{{fileName}}">
+                        <figcaption>
+                            <span>{{technique}}</span>
+                            <span>{{size}}</span>
+                            <span>{{year}}</span>
+                        </figcaption>
+                    </figure>
                 </div>
                 {{/each}}
             </div>
