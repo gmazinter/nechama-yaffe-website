@@ -30,3 +30,7 @@ $("main").on("click", "#carousel-left-arrow", function() {
 $("main").on("click", "#carousel-right-arrow", function() {
     renderer.flipImage(39)
 })
+
+$("main").on("click", "#carousel-exit-button", function() {
+    renderer.toggleCarouselVisibility()
+})

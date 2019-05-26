@@ -58,7 +58,7 @@ nav > a:hover {
 
 #gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     /* grid-auto-rows: 180px; */
     grid-gap: 20px;
     padding: 0;
@@ -101,7 +101,8 @@ nav > a:hover {
 .detail-card p {
     margin: 5px 0;
 }
-#carousel-container {
+
+#lightbox {
     box-sizing: border-box;
     padding: 0 5vw;
     visibility: hidden;
@@ -114,32 +115,65 @@ nav > a:hover {
     position: fixed;
     top: 0;
     left: 0;
+    /* transition: visibility 2s; */
 }
-#carousel-container > button {
-    height: 8vw;
-    width: 6vw;
-    background-color: yellow;
-    z-index: 10;
-}
-#carousel {
+#carousel-container {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: yellow; */
 }
-#carousel > img {
-    max-width: 85vw;
-    object-fit: scale-down;
-}
-
 .enlarged-painting {
+    height: 90vh;
+    width: 85vw;
+    display: flex;
+    justify-content: center;
+    /* background-color: greenyellow; */
     position: absolute;
-    height: 400px;
+    opacity: 100%;
+    transition: opacity 1.5s; /*the appearence*/
+    transition-delay: 0.5s;
 }
-
 .enlarged-painting-hidden {
-    visibility: hidden;
+    /* visibility: hidden; */
+    opacity: 0;
+    transition: opacity 0.5s; /*the dissappearence*/
+}
+.enlarged-painting figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.enlarged-painting img {
+    max-width: 85vw;
+    max-height: 95%;
+    object-fit: scale-down;
+    margin-bottom: 1vw;
+}
+.enlarged-painting span {
+    color: whitesmoke;
+    font-size: larger;
+    font-weight: bold;
+    margin: 0 2vw;
+}
+.carousel-button {
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    height: 8vw;
+    width: 6vw;
+    color: whitesmoke;
+    font-size: 3vw;
+    background: none;
+    z-index: 10;
+}
+#carousel-exit-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 2vw;
 }
 
 #contact-container {
@@ -156,5 +190,5 @@ nav > a:hover {
 }
 
 footer {
-    margin-top: 4vw;
+    margin-top: 3vw;
 }
