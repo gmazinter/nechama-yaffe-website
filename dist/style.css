@@ -101,7 +101,8 @@ nav > a:hover {
 .detail-card p {
     margin: 5px 0;
 }
-#carousel-container {
+
+#lightbox {
     box-sizing: border-box;
     padding: 0 5vw;
     visibility: hidden;
@@ -115,12 +116,34 @@ nav > a:hover {
     top: 0;
     left: 0;
 }
-#carousel {
+#carousel-container {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: yellow; */
+}
+.enlarged-painting {
+    height: 80vh;
+    width: 85vw;
+    display: flex;
+    justify-content: center;
+    /* background-color: greenyellow; */
+    position: absolute;
+    opacity: 100%;
+    transition: opacity 1.5s; /*the appearence*/
+    transition-delay: 0.5s;
+}
+.enlarged-painting-hidden {
+    /* visibility: hidden; */
+    opacity: 0;
+    transition: opacity 0.5s; /*the dissappearence*/
+}
+.enlarged-painting > img {
+    max-width: 85vw;
+    max-height: 90%;
+    object-fit: scale-down;
 }
 .carousel-button {
     border: none;
@@ -138,20 +161,6 @@ nav > a:hover {
     right: 0;
     top: 0;
     padding-right: 2vw;
-}
-.enlarged-painting {
-    max-width: 85vw;
-    object-fit: scale-down;
-    position: absolute;
-    height: 400px;
-    opacity: 100%;
-    transition: opacity 1.5s; /*the appearence*/
-    transition-delay: 0.5s;
-}
-.enlarged-painting-hidden {
-    /* visibility: hidden; */
-    opacity: 0;
-    transition: opacity 0.5s; /*the dissappearence*/
 }
 
 #contact-container {

@@ -62,16 +62,15 @@
     </script>
 
     <script id="carousel-template" type="text/x-handlebars-template">
-        <div id="carousel-container">
+        <div id="lightbox">
             <button class="carousel-button" id="carousel-exit-button">X</button>
             <button class="carousel-button" id="carousel-left-arrow"><i class="fas fa-chevron-left"></i></button>
-            <div id="carousel">
+            <div id="carousel-container">
                 {{#each paintings}}
-                    <img 
-                        src="./paintings/{{fileName}}"
-                        id="{{fileName}}-enlarged"
-                        class="enlarged-painting enlarged-painting-hidden"
-                    >
+                <div id="{{fileName}}-enlarged" class="enlarged-painting enlarged-painting-hidden">
+                    <img src="./paintings/{{fileName}}">
+                    <!-- <figcaption>{{technique}}</figcaption> -->
+                </div>
                 {{/each}}
             </div>
             <button class="carousel-button" id="carousel-right-arrow"><i class="fas fa-chevron-right"></i></button>

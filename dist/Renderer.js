@@ -62,7 +62,7 @@ class Renderer {
     revealSingleCarouselImage() {
         this.currentEnlarged = this.enlargedImages.eq(this.targetImageIndex)
         this.currentEnlarged.toggleClass("enlarged-painting-hidden")
-        $("#carousel-container").css("visibility", "visible")
+        $("#lightbox").css("visibility", "visible")
     }
     
     flipImage(direction) {
@@ -87,6 +87,6 @@ class Renderer {
 
     toggleCarouselVisibility() {
         this.currentEnlarged.toggleClass("enlarged-painting-hidden")
-        $("#carousel-container").css("visibility", "hidden")
+        $("#lightbox").css("visibility", "hidden")
     }
 }
