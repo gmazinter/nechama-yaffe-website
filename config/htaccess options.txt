@@ -1,0 +1,25 @@
+---------------- original ----------------
+RewriteEngine On
+RewriteCond %{HTTP_HOST} nechamayaffe\.com [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://nechamayaffe.com/$1 [R,L]
+
+
+---------------- other -------------------
+RewriteEngine on
+RewriteRule  (.*)  http://localhost:50080/$1  [P,L]
+
+Redirect 301 / http://nechamayaffe.com:50080
+Redirect 301 / https://nechamayaffe.com:50080
+
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://nechamayaffe.com:50080%{REQUEST_URI} [L,NE,R=301]
+
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC,OR]
+RewriteCond %{HTTP_HOST} nechamayaffe\.com [NC]
+RewriteRule ^ https://nechamayaffe.com:50080%{REQUEST_URI} [L,NE,R=301]
+
