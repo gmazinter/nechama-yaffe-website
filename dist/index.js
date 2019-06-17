@@ -1,7 +1,28 @@
 const renderer = new Renderer();
 
-window.addEventListener('load', renderer.router)
-window.addEventListener('hashchange', renderer.router);
+function router() {
+    switch(location.hash) {
+        case '':
+            renderer.renderNavButton('Home')
+            renderer.renderHome()
+            break;
+        case '#/home':
+            renderer.renderNavButton('Home')
+            renderer.renderHome()
+            break;
+        case '#/paintings':
+            renderer.renderNavButton('Paintings')
+            renderer.renderPaintings(paintings)
+            renderer.renderCarousel(paintings)
+            break;
+        case '#/contact':
+            renderer.renderNavButton('Contact')
+            renderer.renderContact()
+    }
+}
+
+window.addEventListener('load', router)
+window.addEventListener('hashchange', router);
 
 $("main").on("mouseenter mouseleave", ".painting-listing", function() {
     $(this).children("div").toggleClass("detail-card-hidden")

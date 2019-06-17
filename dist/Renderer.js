@@ -3,27 +3,15 @@ class Renderer {
         this.enlargedImages
         this.currentEnlarged
         this.targetImageIndex
+        this.currentPage = 'Home'
     }
 
-    router() {
-        switch(location.hash) {
-            case '':
-                console.log("first render home")
-                renderer.renderHome()
-                break;
-            case '#/home':
-                console.log("render home")
-                renderer.renderHome()
-                break;
-            case '#/paintings':
-                console.log("render paintings")
-                renderer.renderPaintings(paintings)
-                renderer.renderCarousel(paintings)
-                break;
-            case '#/contact':
-                console.log("render contact")
-                renderer.renderContact()
-        }
+    renderNavButton(newPage) {
+        const oldPageAnchor = $(`nav > a[name*=${this.currentPage}]`)
+        oldPageAnchor.removeAttr("style")
+        const newPageAnchor = $(`nav > a[name*=${newPage}]`)
+        newPageAnchor.css("color", "rgb(253, 92, 119)")
+        this.currentPage = newPageAnchor.attr("name")
     }
 
     renderContact() {

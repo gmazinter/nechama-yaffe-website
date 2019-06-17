@@ -1,7 +1,7 @@
 body {
     position: relative;
     font-family: 'Nunito Sans', sans-serif;
-    margin: 3vh 12vw 1vh 12vw;
+    margin: 10vh 12vw 1vh 12vw;
 }
 
 a {
@@ -11,38 +11,49 @@ a {
 }
 
 header {
-    display: grid;
-    grid-template-columns: 6fr 7fr 2fr;
-    grid-template-areas: "t n s";
-    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* grid-template-columns: 6fr 7fr 2fr; */
+    /* grid-template-areas: "t n s"; */
+    align-items: baseline;
 }
 
 h1 {
-    grid-area: t;
-    font-size: 3vw;
-    /* margin: 0 0 5% 0; */
+    /* grid-area: t; */
+    margin: 0 2vw 0 0;
+    flex-grow: 1;
+}
+
+.nav-social-wrapper {
+    display: flex;
+    flex-grow: 2;
+    justify-content: space-between;
 }
 
 nav {
-    grid-area: n;
+    /* grid-area: n; */
     display: flex;
+    flex-grow:1;
+    justify-content: space-between;
 }
 nav > a {
-    text-align: center;
-    flex-basis: 10vw;
-    font-size: 1.8vw;
+    margin-right: 3vw;
+    display: flex;
+    justify-content: center;
 }
 nav > a:hover {
     color: rgb(253, 92, 119);
 }
 
 .social {
+    /* grid-area: s;    */
     display: flex;
     justify-content: flex-end;
-    grid-area: s;   
+    flex-grow: 10;
 }
 .social > a {
-    margin: 0 1vw;
+    margin: 0 0 0 1vw;
 }
 .social > a:link {
     text-decoration: none;
@@ -50,6 +61,10 @@ nav > a:hover {
 .social > a:visited {
     /* text-decoration: none; */
     color: black;
+}
+
+main {
+    margin-top: 0.5vw;
 }
 
 #main-painting {
@@ -190,5 +205,5 @@ nav > a:hover {
 }
 
 footer {
-    margin-top: 3vw;
+    margin-top: 2vw;
 }
