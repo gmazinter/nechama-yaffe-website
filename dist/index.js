@@ -16,14 +16,14 @@ $("main").on("mouseenter mouseleave", ".painting-listing", function() {
 $("main").on("click", ".painting-listing", function() {
     console.log("painting clicked")
     renderer.setTargetImageIndex($(this).index())
-    renderer.revealSingleCarouselImage()
+    renderer.revealCarousel()
 })
 
 $(document).on("keydown", function(event) {
     if ($("#carousel-container").css("visibility") !== "visible") {
         return null //ignore keypress if carousel hidden
     } else if (event.which === 27) {
-        renderer.toggleCarouselVisibility()
+        renderer.hideCarousel()
     } else if (event.which === 37 || event.which === 39) {
         renderer.flipImage(event.which)
     }
@@ -50,5 +50,5 @@ hammertime.on("swiperight", function() {
 })
 
 $("main").on("click", "#carousel-exit-button", function() {
-    renderer.toggleCarouselVisibility()
+    renderer.hideCarousel()
 })

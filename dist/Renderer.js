@@ -91,11 +91,21 @@ class Renderer {
         // this.enlargedImages.first().toggleClass("enlarged-painting-hidden")
     }
     
-    revealSingleCarouselImage() {
+    revealCarousel() {
         this.currentEnlarged = this.enlargedImages.eq(this.targetImageIndex)
         this.currentEnlarged.toggleClass("enlarged-painting-hidden")
         $("main").css("overflow", "hidden")
         $("#lightbox").css("visibility", "visible")
+    }
+
+    hideCarousel() {
+        const viewport = window.getComputedStyle(document.querySelector('body'), '::before')
+            .getPropertyValue('content').replace(/\"/g, '');
+        this.currentEnlarged.toggleClass("enlarged-painting-hidden")
+        viewport === 'small-view' 
+            ? $("main").css("overflow", "scroll") 
+            : $("main").css("overflow", "visible")
+        $("#lightbox").css("visibility", "hidden")
     }
     
     flipImage(direction) {
@@ -116,11 +126,5 @@ class Renderer {
             this.currentEnlarged = this.enlargedImages.eq(this.targetImageIndex) // point to new current image
             this.currentEnlarged.toggleClass("enlarged-painting-hidden") // reveal new current image
         }
-    }
-
-    toggleCarouselVisibility() {
-        this.currentEnlarged.toggleClass("enlarged-painting-hidden")
-        $("main").css("overflow", "scroll")
-        $("#lightbox").css("visibility", "hidden")
     }
 }
