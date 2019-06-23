@@ -17,6 +17,10 @@ body {
         "m m"
         "n n";
 }
+body::before {
+    content: "small-view";
+    display: none;
+}
 
 a {
     cursor: pointer;
@@ -184,90 +188,102 @@ figcaption {
     margin-top: 15%;
 }
 
-/* @media (min-width: 700px) {
+footer {
+    display: none;
+}
+
+@media all and (min-width: 700px) {
     body {
-        position: relative;
-        font-family: 'Nunito Sans', sans-serif;
-        margin: 10vh 12vw 1vh 12vw;
+        /* margin: 10vh 12vw 1vh 12vw; */
+        background-color: palevioletred;
+    }
+    body::before {
+        content: 'large-view';
     }
 
-    a {
+    footer {
+        display: block;
+    }
+
+    /* a {
         cursor: pointer;
         color: black;
         text-decoration: none;
-    }
+    } */
 
-    header {
+    /* header {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
         align-items: baseline;
-    }
+    } */
 
-    h1 {
+    /* h1 {
         margin: 0 2vw 0 0;
         flex-grow: 1;
-    }
+    } */
 
-    .nav-social-wrapper {
+    /* .nav-social-wrapper {
         display: flex;
         flex-grow: 2;
         justify-content: space-between;
-    }
+    } */
 
-    nav {
+    /* nav {
         display: flex;
         flex-grow:1;
         justify-content: space-between;
-    }
-    nav > a {
+    } */
+    /* nav > a {
         margin-right: 3vw;
         display: flex;
         justify-content: center;
-    }
-    nav > a:hover {
+    } */
+    /* nav > a:hover {
         color: rgb(253, 92, 119);
-    }
+    } */
 
-    .social {
+    /* .social {
         display: flex;
         justify-content: flex-end;
         flex-grow: 10;
-    }
-    .social > a {
+    } */
+    /* .social > a {
         margin: 0 0 0 1vw;
-    }
-    .social > a:link {
+    } */
+    /* .social > a:link {
         text-decoration: none;
-    }
-    .social > a:visited {
+    } */
+    /* .social > a:visited {
         color: black;
-    }
+    } */
 
-    main {
+    /* main {
         margin-top: 0.5vw;
-    }
+    } */
 
-    #main-painting {
+    /* #main-painting {
         width: 100%;
-    }
+    } */
 
+    /* #gallery {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    } */
     
-
-    #contact-container {
+    /* #contact-container {
         padding: 1vw;
         background-color: rgba(240, 239, 233, 0.925);
-    }
-    #contact-container > p {
+    } */
+    /* #contact-container > p {
         margin-top: 1vw;
         font-size: 1em;
-    }
+    } */
 
-    #contact-info > p {
+    /* #contact-info > p {
         margin: 1vw 5vw;
-    }
+    } */
 
-    footer {
+    /* footer {
         margin-top: 2vw;
-    }
-} */
+    } */
+}

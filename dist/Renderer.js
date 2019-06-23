@@ -6,6 +6,50 @@ class Renderer {
         this.currentPage = 'Home'
     }
 
+    router = () => {
+        switch(location.hash) {
+            case '':
+                this.renderNavButton('Home')
+                this.renderHome()
+                break;
+            case '#/home':
+                this.renderNavButton('Home')
+                this.renderHome()
+                break;
+            case '#/paintings':
+                this.renderNavButton('Paintings')
+                this.renderPaintings(paintings)
+                this.renderCarousel(paintings)
+                break;
+            case '#/contact':
+                this.renderNavButton('Contact')
+                this.renderContact()
+        }
+    }
+
+    changeLayout = () => {
+        const viewport = window.getComputedStyle(document.querySelector('body'), '::before')
+                .getPropertyValue('content').replace(/\"/g, '');
+        switch(viewport) {
+            case 'large-view':
+                this.rearrangeForSmallView()
+                break;
+            case 'small-view':
+                this.rearrangeForLargeView()
+        }
+    }
+    
+    rearrangeForSmallView() {
+        // const nav = $("nav")
+        const nav = $("nav").detach()
+        $("header > h1").after(nav)
+    }
+    
+    rearrangeForLargeView() {
+        const nav = $("nav").detach()
+        $("main").after(nav)
+    }
+    
     renderNavButton(newPage) {
         const oldPageAnchor = $(`nav > a[name*=${this.currentPage}]`)
         oldPageAnchor.removeAttr("style")
