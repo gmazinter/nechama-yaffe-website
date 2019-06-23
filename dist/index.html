@@ -12,12 +12,7 @@
 
 <body>
     <header>
-        <h1><a href="/#/home">Nechama Yaffe</a></h1> 
-        <nav>
-            <a href="/#/home">Home</a>
-            <a href="/#/paintings">Paintings</a>
-            <a href="/#/contact">Contact</a>
-        </nav>
+        <h1><a href="/">Nechama Yaffe</a></h1>
         <div class="social">
             <a href="https://www.facebook.com/nechama.yaffe" target="_blank"><i class="fab fa-facebook-square"></i></a>
             <a href="https://www.instagram.com/nechamayaffe/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -25,13 +20,16 @@
     </header>
     
     <main></main>
-
-    <footer>
-        &copy all right reserved - Nechama Yaffe
-    </footer>
-
-<!-- --------------- scripts  for page content according to location.hash --------------- -->
-
+    
+    <nav>
+        <a name="Home" href="/#/home"><div>Home</div></a>
+        <a name="Paintings" href="/#/paintings"><div>Paintings</div></a>
+        <a name="Contact" href="/#/contact"><div>Contact</div></a>
+    </nav>
+    <footer>&copy2019 - Nechama Yaffe</footer>
+    
+    <!-- --------------- scripts  for page content according to location.hash --------------- -->
+        
     <script id="home-template" type="text/html">
         <img id="main-painting" src="main_painting.jpg" alt="canvas painting"></img>
     </script>
@@ -65,10 +63,11 @@
         <div id="lightbox">
             <button class="carousel-button" id="carousel-exit-button">X</button>
             <button class="carousel-button" id="carousel-left-arrow"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-button" id="carousel-right-arrow"><i class="fas fa-chevron-right"></i></button>
             <div id="carousel-container">
                 {{#each paintings}}
-                <div id="{{fileName}}-enlarged" class="enlarged-painting enlarged-painting-hidden">
-                    <figure>
+                <div class="enlarged-painting enlarged-painting-hidden">
+                    <figure id="{{fileName}}-enlarged">
                         <img src="./paintings/{{fileName}}">
                         <figcaption>
                             <span>{{technique}}</span>
@@ -79,12 +78,12 @@
                 </div>
                 {{/each}}
             </div>
-            <button class="carousel-button" id="carousel-right-arrow"><i class="fas fa-chevron-right"></i></button>
         </div>
     </script>
 
     <script src="./handlebars/dist/handlebars.js"></script>
     <script src="./jquery/dist/jquery.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js" type="text/javascript"></script>
     <script src="paintingsData.js"></script>
     <script src="Renderer.js"></script>
     <script src="index.js"></script>
