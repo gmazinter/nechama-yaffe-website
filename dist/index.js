@@ -3,8 +3,8 @@ const mainContainer = document.querySelector("main");
 const hammertime = new Hammer(mainContainer);
 
 window.addEventListener('load', function() {
-    renderer.router()
     renderer.changeLayout()
+    renderer.router()
 });
 window.addEventListener('hashchange', renderer.router);
 window.addEventListener('resize', renderer.changeLayout);
