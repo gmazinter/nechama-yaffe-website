@@ -50,6 +50,7 @@ class Renderer {
     revealSingleCarouselImage() {
         this.currentEnlarged = this.enlargedImages.eq(this.targetImageIndex)
         this.currentEnlarged.toggleClass("enlarged-painting-hidden")
+        $("main").css("overflow", "hidden")
         $("#lightbox").css("visibility", "visible")
     }
     
@@ -75,6 +76,7 @@ class Renderer {
 
     toggleCarouselVisibility() {
         this.currentEnlarged.toggleClass("enlarged-painting-hidden")
+        $("main").css("overflow", "scroll")
         $("#lightbox").css("visibility", "hidden")
     }
 }
