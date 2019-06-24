@@ -1,9 +1,14 @@
 :root {
-    --header-height: 9vh;
-    --footer-height: 10vh;
-    --main-height: calc(100vh - (var(--header-height) + var(--footer-height)));
+    --header-height: 9%;
+    --footer-height: 10%;
+    --main-height: calc(100% - (var(--header-height) + var(--footer-height)));
+}
+html {
+    height: 100%;
+    width: 100%;
 }
 body {
+    position: fixed;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -201,6 +206,7 @@ footer {
         content: 'large-view';
     }
     body {
+        position: unset;
         height: unset;
         width: unset;
         display: block;
