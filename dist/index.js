@@ -14,7 +14,6 @@ $("main").on("mouseenter mouseleave", ".painting-listing", function() {
 })
 
 $("main").on("click", ".painting-listing", function() {
-    console.log("painting clicked")
     renderer.setTargetImageIndex($(this).index())
     renderer.revealCarousel()
 })

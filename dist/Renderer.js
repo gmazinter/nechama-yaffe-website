@@ -9,20 +9,20 @@ class Renderer {
     router = () => {
         switch(location.hash) {
             case '':
-                this.renderNavButton('Home')
+                this.highlightNavButton('Home')
                 this.renderHome()
                 break;
             case '#/home':
-                this.renderNavButton('Home')
+                this.highlightNavButton('Home')
                 this.renderHome()
                 break;
             case '#/paintings':
-                this.renderNavButton('Paintings')
+                this.highlightNavButton('Paintings')
                 this.renderPaintings(paintings)
                 this.renderCarousel(paintings)
                 break;
             case '#/contact':
-                this.renderNavButton('Contact')
+                this.highlightNavButton('Contact')
                 this.renderContact()
         }
     }
@@ -40,7 +40,6 @@ class Renderer {
     }
     
     rearrangeForSmallView() {
-        // const nav = $("nav")
         const nav = $("nav").detach()
         $("header > h1").after(nav)
     }
@@ -50,7 +49,7 @@ class Renderer {
         $("main").after(nav)
     }
     
-    renderNavButton(newPage) {
+    highlightNavButton(newPage) {
         const oldPageAnchor = $(`nav > a[name*=${this.currentPage}]`)
         oldPageAnchor.removeAttr("style")
         const newPageAnchor = $(`nav > a[name*=${newPage}]`)
@@ -110,19 +109,16 @@ class Renderer {
     
     flipImage(direction) {
         if (direction === 37) {
-            console.log("left")
             this.currentEnlarged.toggleClass("enlarged-painting-hidden") // hide current image
             this.targetImageIndex = this.enlargedImages.eq(this.targetImageIndex).prev().index() // decrement index
             console.log(this.targetImageIndex)
             this.currentEnlarged = this.enlargedImages.eq(this.targetImageIndex) // point to new current image
             this.currentEnlarged.toggleClass("enlarged-painting-hidden") // reveal new current image
         } else if (direction === 39) {
-            console.log("right")
             this.currentEnlarged.toggleClass("enlarged-painting-hidden") // hide current image
             this.targetImageIndex !== (this.enlargedImages.length - 1) && this.targetImageIndex !== -1
                 ? this.targetImageIndex = this.enlargedImages.eq(this.targetImageIndex).next().index()// increment index
                 : this.targetImageIndex = 0
-            console.log(this.targetImageIndex)
             this.currentEnlarged = this.enlargedImages.eq(this.targetImageIndex) // point to new current image
             this.currentEnlarged.toggleClass("enlarged-painting-hidden") // reveal new current image
         }
