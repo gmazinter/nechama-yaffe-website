@@ -4,9 +4,11 @@ class Renderer {
         this.currentEnlarged
         this.targetImageIndex
         this.currentPage = 'Home'
+        this.router = this.unboundRouter.bind(this)
+        this.changeLayout = this.unboundChangeLayout.bind(this)
     }
 
-    router = () => {
+    unboundRouter() {
         switch(location.hash) {
             case '':
                 this.highlightNavButton('Home')
@@ -27,26 +29,27 @@ class Renderer {
         }
     }
 
-    changeLayout = () => {
+    unboundChangeLayout() {
         const viewport = window.getComputedStyle(document.querySelector('body'), '::before')
-                .getPropertyValue('content').replace(/\"/g, '');
+        .getPropertyValue('content').replace(/\"/g, '');
+        console.log(viewport)
         switch(viewport) {
             case 'large-view':
-                this.rearrangeForSmallView()
+                this.rearrangeForLargeView()
                 break;
             case 'small-view':
-                this.rearrangeForLargeView()
+                this.rearrangeForSmallView()
         }
     }
     
     rearrangeForSmallView() {
         const nav = $("nav").detach()
-        $("header > h1").after(nav)
+        $("main").after(nav)
     }
     
     rearrangeForLargeView() {
         const nav = $("nav").detach()
-        $("main").after(nav)
+        $("header > h1").after(nav)
     }
     
     highlightNavButton(newPage) {
