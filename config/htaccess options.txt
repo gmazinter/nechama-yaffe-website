@@ -23,3 +23,17 @@ RewriteCond %{HTTP_HOST} ^www\. [NC,OR]
 RewriteCond %{HTTP_HOST} nechamayaffe\.com [NC]
 RewriteRule ^ https://nechamayaffe.com:50080%{REQUEST_URI} [L,NE,R=301]
 
+--------------- in use ---------------------------
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} nechamayaffe\.com [NC]
+RewriteRule ^ https://nechamayaffe.com:50080%{REQUEST_URI} [NE,R=301]
+
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://nechamayaffe.com:50080%{REQUEST_URI} [NE,R=301]
+
+RewriteCond %{HTTP:Accept-Encoding} gzip 
+RewriteCond %{REQUEST_FILENAME}.gz -f 
+RewriteRule ^(.*)$ $1.gz [L]
+

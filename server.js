@@ -5,7 +5,7 @@ const app = express()
 const fs = require("fs")
 
 app.use(express.static(path.join(__dirname, "dist")))
-app.use(express.static(path.join(__dirname, "node_modules")))
+// app.use(express.static(path.join(__dirname, "node_modules")))
 
 //----- for production -----
 const key = fs.readFileSync('../ssl/keys/ccb0d_a9353_108253f886f143dfc68bcdbd568ef758.key');
