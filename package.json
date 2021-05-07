@@ -20,7 +20,7 @@
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.0",
-    "handlebars": "^4.3.0",
+    "handlebars": "^4.7.7",
     "jquery": "^3.4.1"
   }
 }
